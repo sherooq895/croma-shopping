@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h4 class="mt-0 header-title mb-4">Products</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Name</th>
+                                <th scope="col">brand</th>
+                                <th scope="col">category</th>
+                                <th scope="col">sub category</th>
+                                <th scope="col">price</th>
+                                 <th scope="col">cuttingprice</th>
+                               
+                            
+                                <th scope="col">Description</th>
+                                <th scope="col">image</th>
+                              
+
+                            </tr>
+                        </thead>
+                        {{#each orders}}
+                        
+                        <tbody>
+
+                            
+
+                            <tr>
+                               <td>{{@index}}</td> 
+                                <td>{{this.name.[0]}}</td>
+                                <td>{{this.brand.[0]}}</td>
+                                <td>{{this.category.[0]}}</td>
+                               
+                                <td>{{this.subcategory.[0]}}</td>
+                                <td> {{this.price.[0]}}</td>
+                                 <td> {{this.cuttingprice.[0]}}</td>
+                                 <td> {{this.description.[0]}}</td>
+                                
+                                
+                                <td>
+                                    <img style="width:50px ;height:50px" src="/product-images/{{this.images.[0]}}" alt=""></td>
+                                
+                               
+                            </tr>
+
+
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- END ROW -->

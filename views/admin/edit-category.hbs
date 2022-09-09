@@ -1,0 +1,30 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+            <div class="col-md-9">
+                <h2 class="text-center">EDIT CATEGORY</h2>
+                <form action="/admin/edit-categorydata/{{categorylist._id}}" method="post" enctype="form-data">
+
+                    <label for="">NAME</label>
+                    <input type="text" id="contact-name" name="name" value="{{categorylist.name}}" class="form-control" onkeyup="validatename()"required>
+                    <span id="name-error" style="color:rgb(241, 13, 13)"></span>
+
+
+<div>
+                    <label for="">Description</label>
+                    <input type="text" name="description" id="contact-message" value="{{categorylist.description}}" class="form-control" onkeyup="validatemessage()" required>
+                    <span id="message-error" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+                    <label for="">Image</label>
+                    <input type="file" name="image" value="/product-images/{{categorylist.image.[0]}}" class="form-control" multiple>
+
+                    <button type="submit" class="btn btn-success mt-4"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>

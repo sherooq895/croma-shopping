@@ -1,0 +1,64 @@
+<section class=" gradient-custom vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+
+
+
+            <form action="/login" method="POST" role="form">
+
+            {{#if loginerror}}
+            <p class="error">invalid user name and password</p>
+
+            {{/if}}
+
+
+              <div class="mb-md-5 mt-md-4 pb-5">
+
+                <h2 class="fw-bold mb-2 text-uppercase text pb-5">Login</h2>
+
+
+
+
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typeEmailX ">Email</label>
+                  <input type="email" name="email" id="Email" style="font-size:15px" placeholder="enter the valid email"
+                    onkeyup="validateemail()" class="form-control form-control-lg" />
+                  <span id="email-error" style="color:white"></span>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">Password</label>
+                  <input type="password" name="password" style="font-size:15px" placeholder="enter the password"
+                    onkeyup="passwordvalidation()" id="password" class="form-control form-control-lg" />
+                  <span id="password-error" style="color:white"></span>
+                </div>
+
+                
+
+
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">
+                  
+                  Login</button>
+
+
+              </div>
+
+            </form>
+
+            <div>
+              <p class="mb-0">Don't have an account? <a href="signup"
+                  class="text-white-50 fw-bold">Sign Up</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

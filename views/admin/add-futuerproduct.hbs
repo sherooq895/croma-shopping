@@ -1,0 +1,57 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+            <div class="col-md-9">
+                <h2 class="text-center">ADD FUTURE PRODUCTS</h2>
+                <form action="/admin/add-futureproduct" method="post" enctype="multipart/form-data">
+                    <div>
+                        <label for="">NAME</label>
+                        <input type="text" name="name" id="contact-name" class="form-control" onkeyup="validatname()">
+                        <span id="nameerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+
+
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Brand</label>
+                        <select id="inputState" class="form-control" name="brand">
+                            <option>Choose...</option>
+                            {{#each getbrands}}
+                            <option>{{this.name}}</option>
+
+                            {{/each}}
+
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="">Image</label>
+                        <input type="file" name="images" class="form-control" multiple>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-4"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+     function validatname(){
+    message=document.getElementById('contact-name').value;
+
+    if(message.length==0){
+        document.getElementById('nameerror').innerHTML=" name require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+</script>

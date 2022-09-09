@@ -1,0 +1,403 @@
+<!-- Body main wrapper start -->
+<style>
+    .box {
+        width: 200px;
+        height: 300px;
+        position: relative;
+        border: 1px solid #BBB;
+        background: #EEE;
+    }
+
+    .ribbon {
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        z-index: 1;
+        overflow: hidden;
+        width: 75px;
+        height: 75px;
+        text-align: right;
+    }
+
+    .ribbon span {
+        font-size: 10px;
+        font-weight: bold;
+        color: #FFF;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 20px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        width: 100px;
+        display: block;
+        background: #f60a0a;
+        background: linear-gradient(#f60a0a 0%, #f60a0a 100%);
+        box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+        position: absolute;
+        top: 19px;
+        right: -21px;
+    }
+
+    .ribbon span::before {
+        content: "";
+        position: absolute;
+        left: 0px;
+        top: 100%;
+        z-index: -1;
+        border-left: 3px solid #79A70A;
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        border-top: 3px solid #79A70A;
+    }
+
+    .ribbon span::after {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 100%;
+        z-index: -1;
+        border-left: 3px solid transparent;
+        border-right: 3px solid #79A70A;
+        border-bottom: 3px solid transparent;
+        border-top: 3px solid #79A70A;
+    }
+</style>
+
+
+<div class="wrapper">
+
+
+
+
+    <!-- START SLIDER AREA -->
+    <div class="slider-area plr-185 mb-80 section">
+        <div class="container-fluid">
+            <div class="slider-content">
+                <div class="active-slider-1 slick-arrow-1 slick-dots-1">
+                    <!-- layer-1 Start -->
+                    {{#each banner}}
+                    <div class="col-lg-12">
+                        <div class="layer-1">
+                            <div class="slider-img">
+                                <img src="/product-images/{{this.image}}" alt="hhhhhhhhh">
+                            </div>
+                            <div class="slider-info gray-bg">
+                                <div class="slider-info-inner">
+                                    <h1 class="slider-title-1 text-uppercase text-black-1">{{this.name}}</h1>
+                                    <div class="slider-brief text-black-2">
+                                        <p>{{this.description}}</p>
+                                    </div>
+                                    {{!-- <a href="#" class="button extra-small button-black">
+                                        <span class="text-uppercase">Buy now</span>
+                                    </a> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <!-- layer-1 end -->
+                    <!-- layer-1 Start -->
+                    {{!-- <div class="col-lg-12">
+                        <div class="layer-1">
+                            <div class="slider-img">
+                                <img src="images/user/img/picz/pic2.jpg" alt="">
+                            </div>
+                            <div class="slider-info gray-bg">
+                                <div class="slider-info-inner">
+                                    <h1 class="slider-title-1 text-uppercase text-black-1">Women's • Originals SUPERSTAR
+                                        SHOES</h1>
+                                    <div class="slider-brief text-black-2">
+                                        <p>1. Tongue, heel & sockliner: light and comfortable. Bio-based sugar cane
+                                            content (28% tongue and heel, 10% sockliner). 2. Embroidery: reinforcement.
+                                            100% recycled polyester. 3. Upper: smooth, clean, lightweight, breathable,
+                                            durable. 30% Tencel, 70% recycled polyester. 4. Midsole & outsole: light and
+                                            flexible. Midsole: bio-based EVA and Lightstrike EVA. Outsole: 5% natural
+                                            rubber. 5. Lining: soft and breathable. 100% recycled polyester. 6. Laces:
+                                            secure fit. 100% recycled polyester.</p>
+
+                                    </div>
+                                    <a href="#" class="button extra-small button-black">
+                                        <span class="text-uppercase">Buy now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                    <!-- layer-1 end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END SLIDER AREA -->
+
+    <!-- Start page content -->
+    <section id="page-content" class="page-wrapper section">
+
+        <!-- BY BRAND SECTION START-->
+        <div class="by-brand-section mb-80">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title text-left mb-40">
+                            <h2 class="uppercase">CATEGORY</h2>
+                            <h6>moves with your trends</h6>
+                        </div>
+                        <div class="by-brand-product">
+                            <div class="row px-3">
+                                {{#each home.category}}
+                                <!-- single-brand-product start -->
+                                <div class="col-md-4 col-sm-4 col-12">
+                                    <div class="">
+                                        <a href="/shopmen/{{this._id}}"><img src="/product-images/{{this.image}}" alt=""
+                                                class="img-fluid"></a>
+
+                                    </div>
+                                    <h3 class="brand-title text-black">
+                                        <h2><a href="#">{{this.name}}</a></h2>
+                                    </h3>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BY BRAND SECTION END -->
+
+        <!-- FEATURED PRODUCT SECTION START -->
+        <div class="featured-product-section mb-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title text-left mb-40">
+                            <h2 class="uppercase">Featured product</h2>
+                            <h6>step to new trends,</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="featured-product">
+                        <div class="active-featured-product slick-arrow-2">
+                            {{#each fproducts}}
+                            <div class=" raw product-item">
+                                <div class="product-img">
+                                    <a href="/">
+                                        <img src="/product-images/{{this.images.[0]}}" alt="" />
+                                    </a>
+                                </div>
+                                {{!-- <div class="product-info">
+                                    <h3 class="product-title">
+                                        <a href="single-product.html">{{this.name}}</a>
+                                    </h3>
+
+                                </div> --}}
+                                <div class="product-info">
+                                    <h4 class="product-title">
+                                        <a href="">{{this.brand}}</a>
+                                    </h4>
+
+                                </div>
+                            </div>
+                            {{/each}}
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+
+<!-- PRODUCT TAB SECTION START -->
+<div class="product-tab-section mb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-title text-left mb-40">
+                    <h2 class="uppercase">product list</h2>
+                    <h6>Price and other details may vary based on product size and colour</h6>
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!-- popular-product start -->
+                    <div id="popular-product" class="tab-pane active show">
+                        <div class="row">
+                            {{#each home.productlist}}
+                            <!-- product-item start -->
+                            <div class="col-lg-3 col-md-4">
+                                {{#if this.categoryoffer}}
+                                <div class="ribbon">
+                                    <span> {{this.offerpercentage}}% Off</span>
+                                </div>
+                                {{/if}}
+                                <div class="product-item">
+                                    <div class="product-img" style="width:">
+
+                                        <a href="/productview/{{this._id}}">
+                                            <img src=/product-images/{{this.images.[0]}} alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="product-info">
+
+                                        <h1 class="product-title" style="color:black">
+                                            <a>{{this.name}}</a>
+                                        </h1>
+                                         <h3 class="product-title" style="color:black">
+                                            <a>{{this.brand}}</a>
+                                        </h3>
+
+                                        {{#if this.categoryoffer}}
+
+                                        <h3 class="pro-price">₹{{this.price}}</h3>
+                                        {{else}}
+                                        <h4 class="pro-price"><del> ₹{{this.cuttingprice}}</del></h4>
+                                        <h3 class="pro-price">₹{{this.price}}</h3>
+
+                                        {{/if}}
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PRODUCT TAB SECTION END -->
+
+    <!-- BLOG SECTION START -->
+    <div class="blog-section mb-50">
+        <div class="container">
+
+        </div>
+
+        <div>
+
+        </div>
+
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOG SECTION END -->
+</section>
+<!-- End page content -->
+
+<!-- START FOOTER AREA -->
+<footer id="footer" class="footer-area section">
+    <div class="footer-top">
+        <div class="container-fluid">
+            <div class="plr-185">
+                <div class="footer-top-inner gray-bg">
+                    <div class="row " style="text-align: center">
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="single-footer footer-about">
+                                <div>
+                                    <h1> <a style="color: black " class="font-size">
+                                            Croma'
+                                        </a></h1>
+
+                                </div>
+                                <div class="footer-brief">
+                                    <p> multinational technology company which focuses on e-commerce, cloud computing,
+                                        digital streaming, and artificial intelligence. It has been referred to as "one
+                                        of the most influential economic and cultural forces in the world",[5] and is
+                                        one of the world's most valuable brands.[6] It is one of the Big Five American
+                                        information technology companies, alongside Alphabet, Apple, Meta, and
+                                        Microsoft.
+
+                                        Amazon was founded by sherooq</p>
+                                </div>
+                                <ul class="footer-social">
+                                    <li>
+                                        <a class="facebook" href="" title="Facebook"><i
+                                                class="zmdi zmdi-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="google-plus" href="" title="Google Plus"><i
+                                                class="zmdi zmdi-google-plus"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="twitter" href="" title="Twitter"><i class="zmdi zmdi-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 d-block d-xl-block d-lg-none d-md-none">
+                            <div class="single-footer">
+                                <h4 class="footer-title border-left">Shipping</h4>
+                                <ul class="footer-menu">
+                                    <li>
+                                        <a href="#"><i class="zmdi zmdi-circle"></i><span>New Products</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="zmdi zmdi-circle"></i><span>Discount
+                                                Products</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="zmdi zmdi-circle"></i><span>Best Sell
+                                                Products</span></a>
+                                    </li>
+
+
+                                    <li>
+                                        <a href="#"><i class="zmdi zmdi-circle"></i><span>Special
+                                                Products</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4">
+                            <div class="single-footer">
+                                <h4 class="footer-title border-left">my account</h4>
+                                <ul class="footer-menu">
+                                    <li>
+                                        <a href="my-account.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                Account</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="wishlist.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                Wishlist</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="cart.html"><i class="zmdi zmdi-circle"></i><span>My Cart</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Sign
+                                                In</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html"><i
+                                                class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--style-customizer end -->
+    </div>
+    <!-- Body main wrapper end -->

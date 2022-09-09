@@ -1,0 +1,137 @@
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h2 class="mt-0 header-title mb-4 " style="font-size:25px">CATEGORY</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Image</th>
+                                <th scope="col">name</th>
+
+                                <th scope="col">description</th>
+                                <th scope="col">Offer Name</th>
+                                <th scope="col">Offer Percentage (%)</th>
+
+
+
+
+
+                                <th scope="col" colspan="2">Actions</th>
+
+                            </tr>
+                        </thead>
+                        {{#each offers}}
+
+                        <tbody>
+
+
+
+                            <tr>
+                                <td>{{inc @index}}</td>
+                                {{!-- <td>{{this._id}}</td> --}}
+
+                                <td>
+                                    <img style="width:50px ;height:50px" src="/product-images/{{this.image}}" alt="">
+                                </td>
+                                <td>{{this.name}}</td>
+                                <td>{{this.description}}</td>
+                                <td>{{this.offername}}</td>
+                                <td>{{this.offerpercentage}}</td>
+                             
+
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Category Offer
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            {{#each ../categoryoffer}}
+                                            <a class="dropdown-item"  onclick="categoryoffer('{{ ../this._id}}','{{this._id}}')">{{this.name}}</a>
+                                          {{/each}}
+                                            <a class="dropdown-item"  onclick="canceloffer('{{ this._id}}')">Cancel Offer</a>
+                                        </div>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+
+      function categoryoffer(catId, offId) {
+                                                    
+                    $.ajax({
+                        url:'/admin/categoryoffer',
+                        
+                        data: {
+                        category: catId,
+                           offer: offId,
+                      
+                        },
+                        method: 'post',
+                        success: (response) => {
+                           
+                            alert('changed category offer')
+                            location.reload(); 
+                            console.log(response)
+                            console.log('response')
+                            
+                        }
+
+                    })
+                }
+
+
+                 function canceloffer(catId, offId) {
+                    console.log(catId)
+                    console.log('catId')
+                 
+                                                    
+                    $.ajax({
+                        url:'/admin/deletecategoryoffer',
+                        
+                        data: {
+                        category: catId,
+                           
+                      
+                        },
+                        method: 'post',
+                        success: (response) => {
+                           
+                            alert('delete offer')
+                            location.reload(); 
+                            console.log(response)
+                            console.log('response')
+                            
+                        }
+
+                    })
+                }
+
+
+
+    </script>
+
+</div>
+<!-- END ROW -->

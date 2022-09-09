@@ -1,0 +1,89 @@
+<div class="container">
+
+
+    <div class="card">
+        <div class="card-header bg-black"></div>
+        <div class="card-body">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <i class="far fa-building text-danger fa-6x float-start"></i>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xl-12">
+
+                        <ul class="list-unstyled float-end">
+                            <li style="font-size: 30px; color: red;">Croma'</li>
+                            <li>123, Elm Street</li>
+                            <li>123-456-789</li>
+                            <li>croma@mail.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <h3 class="text-uppercase text-center mt-3" style="font-size: 40px;">Invoice</h3>
+                    
+                </div>
+
+                <div class="row mx-3">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Description</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each orderlist}}
+                            <tr>
+                                <td>{{this.product.name}}</td>
+                                <td><i class="fas fa-dollar-sign"></i> {{this.product.price}}</td>
+                            </tr>
+                            {{/each}}
+                           
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="row">
+                    <div class="col-xl-8">
+                        <ul class="list-unstyled float-end me-0">
+                            <li><span class="me-3 float-start">Total Amount:</span><i class="fas fa-dollar-sign"></i>
+                               {{orderlist.[0].totalAmount}}
+                            </li>
+                           
+                            <li><span class="float-start" style="margin-right: 35px;">Shippment: </span><i
+                                    class="fas fa-dollar-sign"></i> 0</li> 
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-xl-8" style="margin-left:60px">
+                        <p class="float-end"
+                            style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
+                            Total:
+                            <span><i class="fas fa-dollar-sign"></i> {{orderlist.[0].totalAmount}}</span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="row mt-2 mb-5">
+                    <p class="fw-bold">Date: <span class="text-muted">{{orderlist.[0].date}}</span></p>
+                    <p class="fw-bold mt-3">Signature:</p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="card-footer bg-black"></div>
+    </div>
+</div>

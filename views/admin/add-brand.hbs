@@ -1,0 +1,61 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+            <div class="col-md-9">
+                <h4 class="text-center">ADD BRAND</h4>
+                <form action="/admin/add-brand" method="post" enctype="form-data">
+                    <div>
+                        <label for="">NAME</label>
+                        <input type="text" name="name" id="contact-name" class="form-control" onkeyup="validatname()"
+                            required>
+                        <span id="nameerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+                    <div>
+                        <label for="">Description</label>
+                        <input type="text" name="description" id="contact-description" class="form-control"
+                            onkeyup="validatedescription()" required>
+                        <span id="descriptionerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success mt-4"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function validatname(){
+    message=document.getElementById('contact-name').value;
+
+    if(message.length==0){
+        document.getElementById('nameerror').innerHTML=" name require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+
+function validatedescription(){
+    message=document.getElementById('contact-description').value;
+
+    if(message.length==0){
+        document.getElementById('descriptionerror').innerHTML=" description require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+</script>

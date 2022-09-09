@@ -1,0 +1,62 @@
+<section>
+  <div class="container align-items-center">
+    <div class="text-center" style="padding-bottom: 50px ">
+      <h1>ADMIN LOGIN</h1>
+
+    </div>
+    <div class="row text-center " style="padding-left: 250px " >
+      <form class="col-md-8 text-center  " action="/admin/login" method="POST">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="Email" class="form-control" id="email" onkeyup="validateemail()">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+           <span id="emailerror" style="color:rgb(241, 13, 13)"></span>
+
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" onkeyup="validatecontact()">
+        </div>
+
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  function validateemail() {
+    var email = document.getElementById("email").value;
+    console.log(email)
+    if (email.length == 0) {
+
+        emailerror.innerHTML = "email is required";
+        return false;
+    }
+    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+        emailerror.innerHTML = "please enter the valid email"
+        return false;
+    }
+    emailerror.innerHTML = ""
+    return true;
+}
+
+
+function validatecontact() {
+    
+    var contact = document.getElementById("contact-number").value;
+    if (contact == 0) {
+        contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid password"
+        return false
+    }
+    contacterror.innerHTML = "valid"
+    return true;
+
+}
+</script>

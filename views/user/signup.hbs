@@ -1,0 +1,89 @@
+<section class=" gradient-custom vh-100" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-50">
+      <div class="col-12 col-md-7 col-lg-7 col-xl-7">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+
+
+
+            <form action="/signup" method="POST" role="form">
+
+            {{#if signupError}}
+            <p class="error">{{signupError}}</p>
+
+            {{/if}}
+
+
+              <div class="mb-md-5 mt-md-4 pb-5">
+
+                <h2 class="fw-bold mb-2 text-uppercase text pb-5">signup</h2>
+                <div>
+
+
+
+
+                 <div class="form-outline form-white mb-4 ">
+                  <label class="form-label" for="typeEmailX ">Name</label>
+                  <input type="text" name="name" id="contact-name" style="font-size:15px" placeholder="enter name"
+                    onkeyup="validatename() " class="form-control form-control-lg" />
+                  <span id="name-error" style="color:white"></span>
+                </div>
+
+                <div class="form-outline form-white mb-4 ">
+                  <label class="form-label" for="typeEmailX ">Mobile Number</label>
+                  <input type="text" name="number" id="contact-number" style="font-size:15px" placeholder="enter number"
+                    onkeyup="validatecontact()" class="form-control form-control-lg" />
+                  <span id="contact-error" style="color:rgb(247, 7, 7)"></span>
+                </div>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typeEmailX ">Email</label>
+                  <input type="email" name="email" id="Email" style="font-size:15px" placeholder="enter the valid email"
+                    onkeyup=" validateemail()" class="form-control form-control-lg" />
+                  <span id="email-error" style="color:rgb(241, 13, 13)"></span>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">Password</label>
+                  <input type="password" name="password" style="font-size:15px" placeholder="enter the password"
+                    onkeyup="passwordvalidation()" id="password" class="form-control form-control-lg" required/>
+                  <span id="password-error" style="color:white"></span>
+                </div>    
+                <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">Conform Password</label>
+                  <input type="password" id="" style="font-size:15px" placeholder="enter the password"
+                    onkeyup="passwordvalidation()" id="password" class="form-control form-control-lg" required />
+                  <span id="password-error" style="color:white"></span>
+                </div>
+                 <div class="form-outline form-white mb-4">
+                  <label class="form-label" for="typePasswordX">Refferal Code</label>
+                  <input type="text" id="" name="refferal" style="font-size:15px" placeholder="enter refferalcode' if you have"
+                    onkeyup="passwordvalidation()" id="password" class="form-control form-control-lg"  />
+                  <span id="password-error" style="color:white"></span>
+                </div>
+
+                
+                
+
+
+
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">
+                  
+                  signup</button>
+
+
+              </div>
+
+            </form>
+
+           
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

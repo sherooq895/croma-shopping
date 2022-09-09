@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h2 class="mt-0 header-title mb-4 " style="font-size:25px">Products</h2>
+              
+                <div>
+                    <a href="/totalinvoice/{{id}}" class="btn btn-primary ">Show Invoice</a>
+                </div>
+
+
+
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+
+                                <th scope="col"> product Name</th>
+
+
+                                <th scope="col">Price</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Image</th>
+
+
+
+                            </tr>
+                        </thead>
+
+                        {{#each orders}}
+
+                        <tbody>
+
+
+
+                            <tr>
+                                <td>{{inc @index}}</td>
+                                {{!-- <td>{{this._id}}</td> --}}
+
+                                <td>{{this.product.name}}</td>
+
+
+                                <td>{{this.product.price}}</td>
+                                <td>{{this.product.description}}</td>
+
+                                <td>{{this.status}}</td>
+                                <td>
+                                    <img style="width:50px ;height:50px"
+                                        src="/product-images/{{this.product.images.[0]}}" alt="">
+                                </td>
+                                <td>
+
+                                <td>
+                                    <a href="/invoice/{{this._id}}/{{this.product._id}}">Get Invoice</a>
+
+                                <td>
+
+
+
+
+
+
+
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function deleteProduct(orderId, proId) {
+            console.log("delete from order");
+            $.ajax({
+                url: "/delete-orderproduct",
+                data: {
+                    order: orderId,
+                    product: proId,
+                },
+                method: "post",
+                success: (response) => {
+                    if (response.removed) {
+                        alert("cancel order?");
+                        location.reload();
+                    }
+                },
+            });
+        }
+
+    </script>
+
+</div>
+<!-- END ROW -->

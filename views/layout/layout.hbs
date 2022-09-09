@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Croma - shopping </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    {{#if user}}
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/icon/favicon.png">
+
+    <!-- All CSS Files -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="/stylesheets/user/css/bootstrap.min.css">
+    <!-- Nivo-slider css -->
+    <link rel="stylesheet" href="/stylesheets/user/lib/css/nivo-slider.css">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="/stylesheets/user/css/core.css">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="/stylesheets/user/css/shortcode/shortcodes.css">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="/stylesheets/user/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="/stylesheets/user/css/responsive.css">
+    <!-- User style -->
+    <link rel="stylesheet" href="/stylesheets/user/css/custom.css">
+
+    <!-- Style customizer (Remove these two lines please) -->
+    <link rel="stylesheet" href="/stylesheets/user/css/style-customizer.css">
+    <link href="#" data-style="styles" rel="stylesheet">
+
+    <!-- Modernizr JS -->
+    {{!--
+    <script src="stylesheets/user/js/vendor/modernizr-3.11.2.min.js"></script> --}}
+    <script src="stylesheets/admin/js/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+
+
+    {{/if}}
+
+    {{#if admin}}
+    <!-- Bootstrap rating css -->
+    <link href="/stylesheets/admin/plugins/bootstrap-rating/bootstrap-rating.css" rel="stylesheet" type="text/css">
+
+     <!-- DataTables -->
+    <link href="/stylesheets/admin/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/admin/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+     <!-- Responsive datatable examples -->
+    <link href="/stylesheets/admin/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/stylesheets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/admin/css/metismenu.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/admin/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/admin/css/style.css" rel="stylesheet" type="text/css">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    {{else}}
+    
+    <!-- Bootstrap rating css -->
+    <link href="../plugins/bootstrap-rating/bootstrap-rating.css" rel="stylesheet" type="text/css">
+
+    <link href="/stylesheets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/admin/css/metismenu.min.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/admin/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/admin/css/style.css" rel="stylesheet" type="text/css">
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{/if}}
+
+
+</head>
+
+<body>
+    {{#if user}}
+    {{>user-header}}
+    {{/if}}
+    {{#if admin}}
+    {{>admin-sidebar}}
+    {{/if}}
+
+    {{{body}}}
+
+    {{#if user}}
+    
+    <!-- jquery latest version -->
+    {{!--
+    <script src="/stylesheets/user/js/vendor/jquery-3.6.0.min.js"></script> --}}
+    {{!--
+    <script src="/stylesheets/user/js/vendor/jquery-migrate-3.3.2.min.js"></script> --}}
+    <!-- Bootstrap framework js -->
+    <script src="/stylesheets/user/js/bootstrap.bundle.min.js"></script>
+    <!-- jquery.nivo.slider js -->
+    <script src="/stylesheets/user/lib/js/jquery.nivo.slider.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="/stylesheets/user/js/plugins.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="/stylesheets/user/js/main.js"></script>
+    <script src="/stylesheets/user/js/validation.js"></script>
+    <script src="/javascripts/script.js"></script>
+   
+
+
+
+    {{/if}}
+    {{#if admin}}
+    
+
+
+
+                </div>
+
+            </div>
+            <!-- END wrapper -->
+
+</body>
+
+</html>
+    <!-- END wrapper -->
+
+    <!-- jQuery  -->
+
+    <script src="/stylesheets/admin/js/jquery.min.js"></script>
+    <script src="/stylesheets/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="/stylesheets/admin/js/metismenu.min.js"></script>
+    <script src="/stylesheets/admin/js/jquery.slimscroll.js"></script>
+    <script src="/stylesheets/admin/js/waves.min.js"></script>
+
+    <!-- Bootstrap rating js -->
+    <script src="/plugins/bootstrap-rating/bootstrap-rating.min.js"></script>
+    <script src="/stylesheets/admin/pages/rating-init.js"></script>
+    
+
+    <!-- App js -->
+    <script src="/stylesheets/admin/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+
+    <!-- Required datatable js -->
+    <script src="/stylesheets/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="/stylesheets/admin/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/buttons.bootstrap4.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/jszip.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/pdfmake.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/vfs_fonts.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/buttons.print.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/buttons.colVis.min.js"></script>
+    <!-- Responsive examples -->
+    <script src="/stylesheets/admin/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="/stylesheets/admin/plugins/datatables/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="/stylesheets/admin/assets/pages/datatables.init.js"></script>   
+
+    <!-- App js -->
+    <script src="/stylesheets/admin/assets/js/app.js"></script>
+        
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['COD', 'Razzorpay', 'Paypal', 'Wallet'],
+                datasets: [{
+                    label: 'amount',
+                    data: [{{ amountcod }}, {{ amountrazorpay }}, {{amountpaypal}},{{ amountwallet }}],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+
+        ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+
+            ],
+                borderWidth: 1
+                }]
+            },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+        });
+
+
+        
+    </script>
+
+
+<script>
+        const ctxx = document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctxx, {
+            type: 'doughnut',
+            data: {
+                labels: ['COD', 'Wallet','Razzorpay','Paypal'],
+                datasets: [{
+                    label: 'amount',
+                    data: [{{ codorder }}, {{ walletorder }}, {{razorpayorder}},{{ paypalorder }}],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+
+        ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+
+            ],
+                borderWidth: 1
+                }]
+            },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+        });
+
+
+        
+    </script>
+
+    {{/if}}
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+            <div class="col-md-9">
+                <h2 class="text-center">ADD PRODUCTS</h2>
+                <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+                    <div>
+                        <label for="">NAME</label>
+                        <input type="text" name="name" id="contact-name" class="form-control" onkeyup="validatname()">
+                        <span id="nameerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+
+                    <div class="form-inline col-md-12 m-4">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Category</label>
+                            <select id="inputState" class="form-control" name="category">
+                                <option>Choose..</option>
+                                {{#each getcategory}}
+                                <option>{{this.name}}</option>
+                                {{/each}}
+                            </select>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Brand</label>
+                            <select id="inputState" class="form-control" name="brand">
+                                <option>Choose...</option>
+                                {{#each getbrands}}
+                                <option>{{this.name}}</option>
+
+                                {{/each}}
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-inline col-md-12 m-4">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Sub Category</label>
+                            <select id="inputState" class="form-control" name="subcategory">
+                                <option>Choose..</option>
+                                {{#each getsubcategory}}
+                                <option>{{this.name}}</option>
+
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Stock</label> <input type="text" name="stock" id="contact-stock" class="form-control" onkeyup="validatestock()">
+
+                        </div>
+                             <span id="stockerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+
+                    <label for="">cutting Price</label>
+                    <input type="number" name="cuttingprice" id="contact-cuttingprice" class="form-control" onkeyup="validatecuttingprice()" >
+                    <div>
+                     <span id="cuttingpriceerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+                     
+
+                    <label for="">Price</label>
+                    <input type=" number" name="price" id="contact-price" class="form-control" onkeyup="validateprice()" >
+                     <span id="priceerror" style="color:rgb(241, 13, 13)"></span>
+
+
+                    <div>
+                        <label for="">Description</label>
+                        <input type="text" name="description" id="contact-description" class="form-control" onkeyup="validatedescription()">
+                        <span id="descriptionerror" style="color:rgb(241, 13, 13)"></span>
+                   </div>
+
+                    <label for="">Image</label>
+                    <input type="file" name="images" class="form-control" multiple>
+
+                        <button type="submit" id="fom-submit" class="btn btn-success mt-4" onkeyup="return validatesubmit()"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+  
+
+
+function validatestock() {
+    
+    var contact = document.getElementById("contact-stock").value;
+    if (contact == 0) {
+        document.getElementById('stockerror').innerHTML="stock number is requird"
+        //contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid"
+        return false
+    }
+    contacterror.innerHTML = ""
+    return true;
+
+}
+
+
+function validatecuttingprice() {
+    
+    var contact = document.getElementById("contact-cuttingprice").value;
+    if (contact == 0) {
+        document.getElementById('cuttingpriceerror').innerHTML="cuttingprice is requird"
+        //contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid"
+        return false
+    }
+    contacterror.innerHTML = ""
+    return true;
+
+}
+
+function validateprice() {
+    
+    var contact = document.getElementById("contact-price").value;
+    if (contact == 0) {
+        document.getElementById('priceerror').innerHTML="price is requird"
+        //contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid"
+        return false
+    }
+    contacterror.innerHTML = ""
+    return true;
+
+}
+
+
+function validatedescription(){
+    message=document.getElementById('contact-description').value;
+
+    if(message.length==0){
+        document.getElementById('descriptionerror').innerHTML=" description require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+
+function validatname(){
+    message=document.getElementById('contact-name').value;
+
+    if(message.length==0){
+        document.getElementById('nameerror').innerHTML=" name require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+</script>

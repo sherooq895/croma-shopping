@@ -1,0 +1,29 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+            <div class="col-md-9">
+                <h4 class="text-center">EDIT BRAND</h4>
+                <form action="/admin/edit-branddata/{{brandlist._id}}" method="post" enctype="form-data">
+                    <div>
+                        <label for="">NAME</label>
+                        <input type="text" name="name" id="contact-name" value="{{brandlist.name}}" class="form-control" onkeyup="validatename()"
+                            required>
+                        <span id="name-error" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+                    <div>
+                        <label for="">Description</label>
+                        <input type="text" name="description" id="contact-message" value="{{brandlist.description}}" class="form-control"
+                            onkeyup="validatemessage()" required>
+                        <span id="message-error" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success mt-4"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>

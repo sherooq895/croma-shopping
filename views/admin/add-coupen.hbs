@@ -1,0 +1,151 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+
+
+
+            {{!-- <label for="">NAME</label>
+            <input type="text" id="contact-name" name="name" class="form-control" onkeyup="validatename()" required>
+            <span id="name-error" style="color:rgb(241, 13, 13)"></span> --}}
+
+
+
+
+
+
+
+            <div class="col-md-9">
+                <h4 class="text-center">ADD COUPEN</h4>
+                <form action="/admin/add-coupen" method="post" enctype="form-data">
+
+                    <div>
+                        <label for="">Coupen Name</label>
+                        <input type="text" id="contact-name" name="name" class="form-control" onkeyup="validatname()"
+                           >
+                        <span id="nameerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+                     <div>
+                        <label for="">Percentage</label>
+                        <input type="number" id="contact-percentage" name="Percentage" class="form-control" onkeyup="validatepercentage()"
+                            >
+                        <span id="percentageerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+                    <div>
+                        <label for="">Expare Date</label>
+                        <input type="date" name="Exparedate" id="contact-message" class="form-control"
+                            >
+                        <span id="message-error" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+                     <div>
+                        <label for="">Minimum Amount</label>
+                        <input type="text" name="minimumamount" id="contact-minprice" class="form-control"  onkeyup="validateminprice()"
+                            >
+                        <span id="minpriceerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+                    <div>
+                        <label for="">Maximum Amount</label>
+                        <input type="text" name="maximumamount" id="contact-maxprice" class="form-control"  onkeyup="validatemaxprice()"
+                            >
+                        <span id="maxpriceerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-4"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    function validatepercentage() {
+    
+    var contact = document.getElementById("contact-percentage").value;
+    if (contact == 0) {
+        document.getElementById('percentageerror').innerHTML="percentage is requird"
+        //contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid"
+        return false
+    }
+    contacterror.innerHTML = ""
+    return true;
+
+}
+
+
+function validatedescription(){
+    message=document.getElementById('contact-description').value;
+
+    if(message.length==0){
+        document.getElementById('descriptionerror').innerHTML=" description require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+
+function validatname(){
+    message=document.getElementById('contact-name').value;
+
+    if(message.length==0){
+        document.getElementById('nameerror').innerHTML=" name require"
+        return false;
+    }
+
+    // if(message.length<50){
+    //     messageerror.innerHTML="type  more"
+    // }
+    messageerror.innerHTML=""
+    return true;
+}
+
+function validateminprice() {
+    
+    var contact = document.getElementById("contact-minprice").value;
+    if (contact == 0) {
+        document.getElementById('minpriceerror').innerHTML="minprice is requird"
+        //contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid"
+        return false
+    }
+    contacterror.innerHTML = ""
+    return true;
+
+}
+
+
+function validatemaxprice() {
+    
+    var contact = document.getElementById("contact-maxprice").value;
+    if (contact == 0) {
+        document.getElementById('maxpriceerror').innerHTML="maxprice is requird"
+        //contacterror.innerHTML = "contact number is requird"
+        return false;
+    }
+   
+    if (!contact.match(/^[0-9]{10}$/)) {
+        contacterror.innerHTML = "invalid"
+        return false
+    }
+    contacterror.innerHTML = ""
+    return true;
+
+}
+</script>

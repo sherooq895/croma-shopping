@@ -1,0 +1,319 @@
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+
+        <!-- START HEADER AREA 
+                                    <!-- total-cart -->
+
+
+
+
+        <!-- BREADCRUMBS SETCTION START -->
+        <div class="breadcrumbs-section plr-200 mb-80 section">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs-inner">
+
+                            <ul class="breadcrumb-list">
+                                <li><a href="/">Home</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BREADCRUMBS SETCTION END -->
+
+    <!-- Start page content -->
+    <section id="page-content" class="page-wrapper section">
+        <div class="container">
+            <!-- SHOP SECTION START -->
+
+            <div class="tab-content">
+                <!-- shopping-cart start -->
+                <div class="tab-pane active" id="shopping-cart">
+                    <div class="shopping-cart-content">
+                        <form action="#">
+                            <div class="table-content table-responsive mb-50">
+                                <table class="text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">Image</th>
+                                            <th class="product-thumbnail">product</th>
+                                            <th class="product-price">price</th>
+                                            <th class="product-quantity">Quantity</th>
+
+                                            <th class="product-remove">remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#if products.carterror}}
+                                        <tr>
+                                            <td colspan="5">
+                                                <img src="https://sarivillafashion.com/img/images/listing-5/empty-cart.gif" alt="" class="img-fluid">
+                                                <h1>Cart Is Empty</h1>
+                                            </td>
+                                        </tr>
+                                        {{else}}
+                                        {{#each products}}
+                                        <!-- tr -->
+                                        <tr>
+
+                                            <td>
+                                                <img style="width:100px ;height:100px"
+                                                    src="/product-images/{{this.product.images.[0]}}" alt="">
+                                            </td>
+
+                                            <td>
+                                                <div class="pro-thumbnail-info text-left">
+                                                    <h6 class="product-title-2">
+                                                        <a href="#">{{this.product.name}}</a>
+                                                    </h6>
+                                                    <p>{{this.product.brand}}</p>
+
+
+                                                </div>
+                                            </td>
+                                            <td class="product-price">₹{{this.product.price}}</td>
+
+
+
+
+                                            <td class="product-quantity">
+                                                <div class="d-flex justify-content-center">
+                                                    <div><button class="cart-item-count mr-3 "
+                                                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../userlog._id}}',-1)">-</button>
+                                                    </div>
+
+                                                    <span id="{{this.product._id}}">{{this.quantity}}</span>
+                                                    <div><button class="cart-item-count ml-3 "
+                                                            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../userlog._id}}',1)">+</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <button onclick="deleteProduct('{{this._id}}','{{this.product._id}}')"
+                                                    class="btn btn-danger btn-md">Remove</button>
+                                            </td>
+
+                                        </tr>
+                                        {{/each}}
+                                        {{/if}}
+                                        <!-- tr -->
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    
+                                </div>
+                                {{#if products.carterror}}
+                                {{else}}
+                                
+                                <div class="col-md-6">
+                                    <div class="payment-details box-shadow p-30 mb-50">
+                                        <h6 class="widget-title border-left mb-20">payment details</h6>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td ><h3 class="order-total">Order Total</h3></td>
+                                                    <td><h2  class="order-total-price">₹ <span id="total">{{total}}</span></h2></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    
+                                                    <td colspan="2">
+                                                        <a  href="/place-order"  class="submit-btn-1 black-bg btn-hover-2 px-4 py-3 mt-4">Place Order</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                {{/if}}
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+                <!-- shopping-cart end -->
+
+
+                <!-- START FOOTER AREA -->
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- START FOOTER AREA -->
+        <footer id="footer" class="footer-area section">
+            <div class="footer-top">
+                <div class="container-fluid">
+                    <div class="plr-185">
+                        <div class="footer-top-inner gray-bg">
+                            <div class="row " style="text-align: center">
+                                <div class="col-xl-4 col-lg-4 col-md-4">
+                                    <div class="single-footer footer-about">
+                                        <div>
+                                            <h1> <a style="color: black " class="font-size">
+                                                    Croma'
+                                                </a></h1>
+
+                                        </div>
+                                        <div class="footer-brief">
+                                            <p> multinational technology company which focuses on e-commerce,
+                                                cloud computing, digital streaming, and artificial intelligence.
+                                                It has been referred to as "one of the most influential economic
+                                                and cultural forces in the world",[5] and is one of the world's
+                                                most valuable brands.[6] It is one of the Big Five American
+                                                information technology companies, alongside Alphabet, Apple,
+                                                Meta, and Microsoft.
+
+                                                Amazon was founded by sherooq</p>
+                                        </div>
+                                        <ul class="footer-social">
+                                            <li>
+                                                <a class="facebook" href="" title="Facebook"><i
+                                                        class="zmdi zmdi-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="google-plus" href="" title="Google Plus"><i
+                                                        class="zmdi zmdi-google-plus"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="twitter" href="" title="Twitter"><i
+                                                        class="zmdi zmdi-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 d-block d-xl-block d-lg-none d-md-none">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">Shipping</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>New
+                                                        Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Discount
+                                                        Products</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Best Sell
+                                                        Products</span></a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="#"><i class="zmdi zmdi-circle"></i><span>Special
+                                                        Products</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4">
+                                    <div class="single-footer">
+                                        <h4 class="footer-title border-left">my account</h4>
+                                        <ul class="footer-menu">
+                                            <li>
+                                                <a href="my-account.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                        Account</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="wishlist.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                        Wishlist</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="cart.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                        Cart</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Sign
+                                                        In</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html"><i
+                                                        class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--style-customizer end -->
+            <script>
+                function changeQuantity(cartId, proId, userId, count) {
+                    let quantity = parseInt(document.getElementById(proId).innerHTML)
+                    console.log(cartId)
+                    console.log(proId)
+                    console.log(userId)
+                    console.log(typeof count)
+                    console.log('count')
+                    console.log(quantity)
+
+                    $.ajax({
+                        url: '/change-product-quantity',
+                        data: {
+                            user: userId,
+                            cart: cartId,
+                            product: proId,
+                            count: count,
+                            quantity: quantity
+                        },
+                        method: 'post',
+                        success: (response) => {
+                            console.log(response)
+                            document.getElementById(proId).innerHTML = quantity + count
+                            document.getElementById('total').innerHTML = response.total
+                        }
+
+                    })
+                }
+
+                function deleteProduct(cartId, proId) {
+                    console.log("delete from cart");
+                    $.ajax({
+                        url: "/delete-cartproduct",
+                        data: {
+                            cart: cartId,
+                            product: proId,
+                        },
+                        method: "post",
+                        success: (response) => {
+                            if (response.removed) {
+                                alert("Product Removed from cart");
+                                location.reload();
+                            }
+                        },
+                    });
+                }
+            </script>
+            </div>
+            </div>

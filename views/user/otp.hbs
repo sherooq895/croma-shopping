@@ -1,0 +1,59 @@
+<div class="container">
+  <section>
+    <form action="/submit" method="post">
+
+      <div class="text-center " style="font-size:30px">SIGNUP</div>
+      {{#if otperror}}
+      <h4>{{otperror}}</h4>
+      {{/if}}
+      <div class="mb-3">
+        <h3>phone number:{{signupData.number}}</h3>
+      </div>
+      <div class="mb-3">
+        <label for="Select" class="form-label">OTP</label>
+        <input type="form" name="otp" id="disabledSelect" class="form-control" placeholder="enter the otp here">
+
+        </input>
+      </div>
+      <div class="mb-3">
+
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+    <span id="resend" class="text-dark"></span>
+    <div id="timer-full">Resend Code in <span id="timer"></span></div>
+  </section>
+</div>
+
+<script>
+  let timerOn = true;
+
+  function timer(remaining) {
+    var m = Math.floor(remaining / 60);
+    var s = remaining % 60;
+
+    m = m < 10 ? '0' + m : m;
+    s = s < 10 ? '0' + s : s;
+    document.getElementById('timer').innerHTML = m + ':' + s;
+    remaining -= 1;
+
+    if (remaining >= 0 && timerOn) {
+      setTimeout(function () {
+        timer(remaining);
+      }, 1000);
+      return;
+    }
+
+    if (!timerOn) {
+      // Do validate stuff here
+      return;
+    }
+
+    // Do timeout stuff here
+    document.getElementById('resend').innerHTML = '<a href="/resendotp">Resent Otp</a>'
+    document.getElementById('timer-full').innerHTML = ''
+  }
+
+  timer(60);
+</script>

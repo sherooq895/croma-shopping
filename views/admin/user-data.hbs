@@ -1,0 +1,49 @@
+ <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card m-b-30">
+                                <div class="card-body">
+                                    <h4 class="mt-0 header-title mb-4">users</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"></th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">contact</th>
+                                                    {{!-- <th scope="col">Address</th> --}}
+                                                     <th scope="col">Action</th>
+                                                    
+                                                    
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each users}}
+                                                <tr>
+                                                   <td>{{inc @index}}</td>
+                                                    <td>{{this.name}}</td>
+                                                    <td> {{this.email}}></td>
+                                                    <td>{{this.number}}</td>
+                                                    <td>
+                                                        <div>
+                                                            {{#if this.status}}
+                                                            <a href="/admin/blockuser/{{this._id}}" class="btn btn-primary">block</a>
+                                                            {{else}}
+                                                            <a href="/admin/unblockuser/{{this._id}}" class="btn btn-danger">Un block</a>
+                                                            {{/if}}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- END ROW -->

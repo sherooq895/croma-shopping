@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h2 class="mt-0 header-title mb-4 " style="font-size:25px">Your Orders</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Date</th>
+                                <th scope="col">product </th>
+
+                                
+                                <th scope="col">Address</th>
+                                <th scope="col">Payment Method</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+
+                                <th scope="col" colspan="2">Actions</th>
+
+                            </tr>
+                        </thead>
+                        
+                        {{#each orders}}
+
+                        <tbody>
+
+
+
+                            <tr>
+                                <td>{{inc @index}}</td>
+                                {{!-- <td>{{this._id}}</td> --}}
+                                <td>{{this.date}}</td>
+                                <td>{{this.product.name}}</td>
+                               
+                                <td>{{this.deliveryDetails.address}}</td>
+                                <td>{{this.paymentmethod}}</td>
+                                <td>{{this.totalAmount}}</td>
+                                <td>{{this.status}}</td>
+
+                               {{#if_eq this.status "canceled"}}
+
+                               
+                                  <td>  <div>
+                                        <a  onclick="" class="btn btn-primary ">Cancel</a>
+                                    </div>
+                                    </td>
+                                    <td>  <div>
+                                        <a href="/show-orderslist/{{this._id}}" class="btn btn-primary ">Show</a>
+                                    </div>
+                                    </td>
+
+                                </td>
+                                {{else}}
+                                <td>  <div>
+                                        <a  onclick="deleteProduct('{{this._id}}','{{this.product._id}}')" class="btn btn-primary ">Cancel</a>
+                                    </div>
+                                    </td>
+                                    <td>  <div>
+                                        <a href="/show-orderslist/{{this._id}}" class="btn btn-primary ">Show</a>
+                                    </div>
+                                    </td>
+
+                                </td>
+                                {{/if_eq}}
+
+                            </tr>
+
+
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <script>
+         function deleteProduct(orderId, proId) {
+                    console.log("delete from order");
+                    $.ajax({
+                        url: "/delete-orderproduct",
+                        data: {
+                        order: orderId,
+                            product: proId,
+                        },
+                        method: "post",
+                        success: (response) => {
+                            if (response.removed) {
+                                alert("Product Removed from cart");
+                                location.reload();
+                            }
+                        },
+                    });
+                }
+
+    </script>
+
+</div>
+<!-- END ROW -->

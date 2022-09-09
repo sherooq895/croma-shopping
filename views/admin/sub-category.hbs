@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h2 class="mt-0 header-title mb-4 " style="font-size:20px"> SUB CATEGORY</h2>
+                  <div class="float-right m-4 " >
+                                        <a href="/admin/add-subcategory" class="btn btn-success btn-lg float-right ">Add SubCategory</a>
+                                    </div>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                 <th scope="col">Id</th>
+                               
+                                <th scope="col">Name</th>
+                               
+                               
+                               
+                            
+                                <th scope="col" colspan="2">Actions</th>
+
+                            </tr>
+                        </thead>
+                        {{#each subcactegory}}
+                        
+                        <tbody>
+
+                            
+
+                            <tr>
+                             <td>{{inc @index}}</td>
+                                <td>id: {{this._id}}</td>
+                                <td>{{this.name}}</td>
+                              
+                                <td>
+                                    <div>
+                                        <a href="/admin/edit-subcategory/{{this._id}}" class="btn btn-danger ">Edit</a>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- END ROW -->

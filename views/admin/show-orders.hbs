@@ -1,0 +1,167 @@
+<div class="row justify-content-center">
+    <div class="col-xl-12">
+        <div class="card m-b-30">
+            <div class="card-body">
+                <h2 class="mt-0 header-title mb-4 " style="font-size:20px"> Orders</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Date</th>
+                                <th scope="col">User Name</th>
+
+
+                                <th scope="col">Address</th>
+                                <th scope="col">Payment Method</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Delivery Status</th>
+
+                                <th scope="col" colspan="2">Actions</th>
+
+
+                            </tr>
+                        </thead>
+                        {{#each orders}}
+
+                        <tbody>
+
+
+
+                            <tr>
+                                <td>{{inc @index}}</td>
+                                {{!-- <td>{{this._id}}</td> --}}
+                                <td>{{this.date}}</td>
+                                <td>{{this.name}}</td>
+
+                                <td>{{this.deliveryDetails.address}}</td>
+                                <td>{{this.paymentmethod}}</td>
+                                <td>{{this.totalAmount}}</td>
+                                <td>{{this.status}}</td>
+                                <td>
+                                    {{#if_eq this.status "canceled"}}
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Cancelled
+
+                                        </button>
+
+                                    </div>
+                                    {{else}}
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">Order Status
+
+
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            {{#each ../orderstatus}}
+                                            <a class="dropdown-item"
+                                                onclick="orderstatus('{{../this._id}}','{{this._id}}')">{{this.name}}</a>
+
+                                            {{/each}}
+
+                                        </div>
+                                    </div>
+
+                                    {{/if_eq}}
+
+                                </td>
+                                {{#if_eq this.status "canceled"}}
+
+
+                                <td>
+                                    <div>
+                                        <a href="/admin/product/{{this._id}}" class="btn btn-primary ">Show</a>
+                                    </div>
+                                </td>
+                                {{else}}
+                                <td>
+                                    <div>
+                                        <a onclick="deleteProduct('{{this._id}}','{{this.product._id}}')"
+                                            class="btn btn-danger ">Cancel</a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="/admin/product/{{this._id}}" class="btn btn-primary ">Show</a>
+                                    </div>
+                                </td>
+                                {{/if_eq}}
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                        {{/each}}
+                    </table>
+
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script>
+
+    function deleteProduct(orderId, proId) {
+        console.log("delete from order");
+        $.ajax({
+            url: "/delete-orderproduct",
+            data: {
+                order: orderId,
+                product: proId,
+            },
+            method: "post",
+            success: (response) => {
+                if (response.removed) {
+                    alert("order cancelled");
+                    location.reload();
+                }
+            },
+        });
+    }
+
+
+    function orderstatus(ordId, statId) {
+        console.log("orderstatuss changeeeeeee")
+
+        $.ajax({
+            url: '/admin/orderstatus',
+
+            data: {
+                order: ordId,
+                status: statId,
+
+            },
+            method: 'post',
+            success: (response) => {
+
+                alert('changed order status')
+                location.reload();
+
+
+            }
+
+        })
+    }
+
+</script>
+
+</div>
+<!-- END ROW -->

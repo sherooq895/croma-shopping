@@ -1,0 +1,478 @@
+<body>
+
+
+
+    <!-- Start page content -->
+    <section id="page-content" class="page-wrapper section">
+
+        <!-- SHOP SECTION START -->
+        <div class="shop-section mb-80">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="row">
+                                <div class="col-md-6 ps-0 pb-3">
+                                    <form id="coupen-form">
+                                        <div class="coupon-discount box-shadow p-30 mb-50">
+                                            <h6 class="widget-title border-left mb-20">coupon discount</h6>
+                                            <p>Enter your coupon code if you have one!</p>
+                                            <input type="text" name="coupen" placeholder="Enter your code here.">
+                                            <button class="submit-btn-1 black-bg btn-hover-2" type="submit">apply
+                                                coupon</button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                                <div class="col-md-6 ps-0 pb-3" style="border: bottom 30px;">
+
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header m-0" id="headingOne">
+                                                <button class="accordion-button fs-4 fw-bold " type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                    aria-expanded="true" aria-controls="collapseOne">
+                                                    ADD ADDRESS
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <form action="/add-addresscheckout" method="post">
+                                                        <div class="row">
+                                                            <!-- billing details -->
+
+                                                            <div class="billing-details pr-10">
+                                                                <h3 class="widget-title border-left mb-20">Add Address
+                                                                </h3>
+                                                                <label for="">Name</label>
+                                                                <input type="text" placeholder="Name " name="name"
+                                                                    class="form-control">
+                                                                <label for="">Email</label>
+                                                                <input type="text" placeholder="Email address "
+                                                                    name="email" class="form-control">
+                                                                <label for="">phone</label>
+                                                                <input type="text" placeholder="Phone " name="phone"
+                                                                    class="form-control">
+                                                                <label for="">Address</label>
+                                                                <input type="text" placeholder="Adddress "
+                                                                    name="address" class="form-control">
+                                                                <label for="">Place</label>
+                                                                <input type="text" placeholder="place" name="place"
+                                                                    class="form-control">
+                                                                <label for="">District</label>
+                                                                <input type="text" placeholder="District "
+                                                                    name="district" class="form-control">
+                                                                <label for="">State</label>
+                                                                <input type="text" placeholder="state " name="state"
+                                                                    class="form-control">
+                                                                <label for="">pin</label>
+                                                                <input type="pincode" placeholder="pin number"
+                                                                    name="pinnumber" class="form-control">
+                                                                <input type="text" name="userId" id=""
+                                                                    value="{{userlog._id}}" hidden>
+
+                                                                <button class="submit-btn-1 mt-30 btn-hover-1"
+                                                                    type="submit">Add Address</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{!-- /////////////////// --}}
+
+                        <form id="checkout-form">
+                            <div class="row">
+                                <!-- billing details -->
+                                <h2>Addressess</h2>
+                                <div class="col-md-6">
+                                    <div class="accordion" id="accordionExample">
+                                        {{#each address }}
+                                        <div class="accordion-item ">
+                                            <h2 class="accordion-header m-0 " id="headingOne">
+                                                <button class="accordion-button fs-4" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse{{this._id}}"
+                                                    aria-controls="collapse{{this._id}}">
+                                                    <input class="form-check-input ms-1 mt-0" type="radio"
+                                                        name="address" value="{{this._id}}" id="{{this._id}}"><label
+                                                        for="{{this._id}}" class="m-0"> <span
+                                                            style="padding-left: 25px!important;">{{this.name}}</span></label>
+                                                </button>
+                                            </h2>
+                                            <div id="collapse{{this._id}}" class="accordion-collapse collapse"
+                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    {{this.address}}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        {{/each}}
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+
+                                    <div class="col-md-12">
+                                        <div class="payment-details box-shadow p-30 mb-50">
+                                            <h4 class="widget-title border-left mb-20">payment details</h4>
+                                            <table>
+                                                <tr>
+                                                    <td class="td-title-1">Cart Subtotal</td>
+                                                    <td class="td-title-2">{{total}}</td>
+                                                </tr>
+
+                                                {{#if totals.discountamount}}
+                                                <tr>
+                                                    <td class="td-title-1">Offer Price</td>
+                                                    <td class="td-title-2">{{totals.discountamount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="order-total">grandtotal
+                                                        <h4>Order Total</h4>
+                                                    </td>
+                                                    <td class="order-total-price">
+                                                        <h3>₹{{totals.grandtotal}}</h3>
+                                                    </td>
+                                                </tr>
+                                                {{else}}
+                                                <tr>
+                                                    <td class="td-title-1">Offer Price</td>
+                                                    <td class="td-title-2" id="offer-price">0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="order-total">
+                                                        <h4>Order Total</h4>
+                                                    </td>
+                                                    <td class="order-total-price">
+                                                        <h3 id="total-price">₹{{total}}</h3>
+                                                    </td>
+                                                </tr>
+                                                {{/if}}
+                                            </table>
+                                            <h4 class="widget-title border-left mt-30 mb-20">payment method</h4>
+                                            <div id="accordion">
+                                                <div class="payment">
+                                                    <table>
+                                                        <tr>
+                                                            <th colspan="2" class="">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input"
+                                                                        name="payment-method-w"
+                                                                        onclick="checkwallet({{total}})" type="checkbox"
+                                                                        value="wallet" id="defaultCheck1">
+                                                                    <label class="form-check-label fw-bold"
+                                                                        for="defaultCheck1">
+                                                                        Use Wallet <span class="text-success">
+                                                                            ({{wallet.[0].walletamount}}) </span>
+                                                                    </label>
+                                                                </div>
+                                                            </th>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="shipping" id="method">
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="payment-method" id="payment_cod " value="COD" />
+                                                            <label class="form-check-label" for="payment_cod"> Cash On Delivery </label>
+                                                        </div>
+
+                                                        <!-- Default checked radio -->
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="payment-method" id="payment_razorpay "
+                                                                value="Razorpay" />
+                                                            <label class="form-check-label" for="payment_razorpay">Razorpay</label>
+                                                        </div>
+
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio"
+                                                                name="payment-method" id="payment_paypal"
+                                                                value="paypal" />
+                                                            <label class="form-check-label" for="payment_paypal">Paypal</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="submit-btn-1 mt-30 btn-hover-1 w-100" type="submit">place order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {{!-- <div style="width: fit-content;" class="ms-auto">
+                                <button class="submit-btn-1 mt-30 btn-hover-1" type="submit">place order</button>
+                            </div> --}}
+
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+        </div>
+        </div>
+        <!-- checkout end -->
+
+        </div>
+        </div>
+        <!-- SHOP SECTION END -->
+
+    </section>
+    <!-- End page content -->
+
+    <footer id="footer" class="footer-area section">
+        <div class="footer-top">
+            <div class="container-fluid">
+                <div class="plr-185">
+                    <div class="footer-top-inner gray-bg">
+                        <div class="row " style="text-align: center">
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="single-footer footer-about">
+                                    <div>
+                                        <h1> <a style="color: black " class="font-size">
+                                                Croma'
+                                            </a></h1>
+
+                                    </div>
+                                    <div class="footer-brief">
+                                        <p> multinational technology company which focuses on e-commerce, cloud
+                                            computing,
+                                            digital streaming, and artificial intelligence. It has been referred to as
+                                            "one
+                                            of the most influential economic and cultural forces in the world",[5] and
+                                            is
+                                            one of the world's most valuable brands.[6] It is one of the Big Five
+                                            American
+                                            information technology companies, alongside Alphabet, Apple, Meta, and
+                                            Microsoft.
+
+                                            Amazon was founded by sherooq</p>
+                                    </div>
+                                    <ul class="footer-social">
+                                        <li>
+                                            <a class="facebook" href="" title="Facebook"><i
+                                                    class="zmdi zmdi-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="" title="Google Plus"><i
+                                                    class="zmdi zmdi-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="" title="Twitter"><i
+                                                    class="zmdi zmdi-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class="rss" href="" title="RSS"><i class="zmdi zmdi-rss"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 d-block d-xl-block d-lg-none d-md-none">
+                                <div class="single-footer">
+                                    <h4 class="footer-title border-left">Shipping</h4>
+                                    <ul class="footer-menu">
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-circle"></i><span>New Products</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-circle"></i><span>Discount
+                                                    Products</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-circle"></i><span>Best Sell
+                                                    Products</span></a>
+                                        </li>
+
+
+                                        <li>
+                                            <a href="#"><i class="zmdi zmdi-circle"></i><span>Special
+                                                    Products</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4">
+                                <div class="single-footer">
+                                    <h4 class="footer-title border-left">my account</h4>
+                                    <ul class="footer-menu">
+                                        <li>
+                                            <a href="my-account.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                    Account</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="wishlist.html"><i class="zmdi zmdi-circle"></i><span>My
+                                                    Wishlist</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="cart.html"><i class="zmdi zmdi-circle"></i><span>My Cart</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="login.html"><i class="zmdi zmdi-circle"></i><span>Sign
+                                                    In</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="login.html"><i
+                                                    class="zmdi zmdi-circle"></i><span>Registration</span></a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--style-customizer end -->
+        </div>
+        <!-- Body main wrapper end -->
+        <!-- END FOOTER AREA -->
+        <script>
+
+            $("#checkout-form").submit((e) => {
+
+                console.log('asa');
+                e.preventDefault()
+                $.ajax({
+                    url: '/place-order',
+                    method: 'post',
+                    data: $('#checkout-form').serialize(),
+                    success: (response) => {
+                        console.log(response)
+                        console.log('responseddddddddddddddd')
+                       swal("place order?", );
+                        if (response.codsuccess) {
+                            location.href = '/order-success'
+
+                        }
+                        else if (response.razorpay) {
+                            console.log('loggloggloggg')
+                            console.log(response)
+                            razorpayPayment(response)
+                            console.log(response)
+                            console.log('response')
+
+
+                        }
+                        else if (response.paypal) {
+                            console.log('jasoooooonnnnnnnnn')
+                            console.log(response)
+                            for (let i = 0; i < response.links.length; i++) {
+
+                                if (response.links[i].rel === 'approval_url') {
+                                    console.log(response.links[i].href)
+
+                                    location.href = response.links[i].href
+                                }
+
+                            }
+                        }
+                    }
+                })
+            })
+
+        </script>
+
+        <script>
+
+
+
+            function razorpayPayment(order) {
+                console.log('shshshshshshshshhshshsh')
+                var options = {
+                    "key": "rzp_test_JZLCe2VwIjfiSM", // Enter the Key ID generated from the Dashboard
+                    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                    "currency": "INR",
+                    "name": "Croma",
+                    "description": "Test Transaction",
+                    "image": "https://example.com/your_logo",
+                    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                    "handler": function (response) {
+
+                        verifyPayment(response, order)
+
+
+                    },
+                    "prefill": {
+                        "name": "Gaurav Kumar",
+                        "email": "gaurav.kumar@example.com",
+                        "contact": "9999999999"
+                    },
+                    "notes": {
+                        "address": "Razorpay Corporate Office"
+                    },
+                    "theme": {
+                        "color": "#3399cc"
+                    }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.open()
+
+            }
+
+            function verifyPayment(payment, order) {
+                $.ajax({
+                    url: '/verify-payment',
+                    data: {
+                        payment,
+                        order
+                    },
+                    method: 'post',
+                    success: (response) => {
+                        if (response.status) {
+                            location.href = '/order-success'
+                        } else {
+                            alert("payment failed")
+                        }
+
+                    }
+                })
+            }
+
+
+        </script>
+
+        <script>
+            $("#coupen-form").submit((e) => {
+                console.log('coouppeeeennnnn');
+                e.preventDefault(),
+                    $.ajax({
+                        url: '/coupen',
+                        method: 'post',
+                        data: $('#coupen-form').serialize(),
+                        success: (response) => {
+                            console.log(response)
+                            console.log('response')
+                            if (response.coupenerr) {
+                                alert('invalid coupen')
+                            }
+                            if (response.discountamount) {
+                                alert('coupen added successfully')
+                                document.getElementById('offer-price').innerHTML = response.discountamount
+                                document.getElementById('total-price').innerHTML = response.grandtotal
+                            }
+                        }
+
+                    })
+            })
+
+        </script>

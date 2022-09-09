@@ -1,0 +1,32 @@
+<section>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+
+            <div class="col-md-9">
+                <h2 class="text-center">ADD BANNER</h2>
+                <form action="/admin/add-banner" method="post" enctype="form-data">
+
+                    <label for="">NAME</label>
+                    <input type="text" id="contact-message" name="name" class="form-control" onkeyup="validatename()"
+                        required>
+                    <span id="messageerror" style="color:rgb(241, 13, 13)"></span>
+                    <div>
+                        <label for="">Description</label>
+                        <input type="text" name="description" id="contact-message" class="form-control"
+                            onkeyup="validatemessage()" required>
+                        <span id="messageerror" style="color:rgb(241, 13, 13)"></span>
+                    </div>
+
+                    <label for="">Image</label>
+                    <input type="file" name="images" class="form-control" multiple>
+
+
+
+                    <button type="submit" class="btn btn-success mt-4"> Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
