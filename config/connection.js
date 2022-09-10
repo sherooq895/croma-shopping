@@ -4,7 +4,8 @@ const state={
 }
 
 module.exports.connect=function(done){
-    const url='mongodb://localhost:27017'
+     const url='mongodb+srv://croma:croma@cluster0.my79dmu.mongodb.net/?retryWrites=true&w=majority'
+    // const url='mongodb://localhost:27017'
     const dbname='croma'
 
 

@@ -110,9 +110,8 @@ router.post('/signup', function (req, res, next) {
   }
 })
 
-router.get('/resendotp', function (req, res, next) {
+router.get('/resendotp', function (req, res, next)  {
   try {
-   
       userHelpers.reSendOtp(signupData).then((response) => {
         if (response.status) {
           res.redirect('/otp')
