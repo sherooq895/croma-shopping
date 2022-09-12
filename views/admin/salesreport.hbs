@@ -6,10 +6,10 @@
                 <div class="mini-stat-icon float-right">
                     <i class="mdi mdi-briefcase-check bg-success text-white"></i>
                 </div>
+                <h3 class="mt-4"> ₹ {{dayamount.[0].saletotal}}</h3>
                 <div>
                     <h5 class="font-16">Sales Amount For Today</h5>
                 </div>
-                <h3 class="mt-4">{{dayamount.[0].saletotal}}</h3>
 
             </div>
         </div>
@@ -21,10 +21,10 @@
                 <div class="mini-stat-icon float-right">
                     <i class="mdi mdi-briefcase-check bg-success text-white"></i>
                 </div>
+                <h3 class="mt-4"> ₹ {{weekamount.[0].saletotal}}</h3>
                 <div>
                     <h5 class="font-16">Sales Amount For Last Week</h5>
                 </div>
-                <h3 class="mt-4">{{weekamount.[0].saletotal}}</h3>
 
 
             </div>
@@ -37,10 +37,10 @@
                 <div class="mini-stat-icon float-right">
                     <i class="mdi mdi-briefcase-check bg-success text-white"></i>
                 </div>
+                <h3 class="mt-4"> ₹ {{monthamount.[0].saletotal}}</h3>
                 <div>
                     <h5 class="font-16">Sales Amount For Last Month</h5>
                 </div>
-                <h3 class="mt-4">{{monthamount.[0].saletotal}}</h3>
 
             </div>
         </div>
@@ -52,10 +52,10 @@
                 <div class="mini-stat-icon float-right">
                     <i class="mdi mdi-briefcase-check bg-success text-white"></i>
                 </div>
+                <h3 class="mt-4"> ₹ {{yearamount.[0].saletotal}}</h3>
                 <div>
                     <h5 class="font-16">Sales Amount For Last Year</h5>
                 </div>
-                <h3 class="mt-4">{{yearamount.[0].saletotal}}</h3>
 
             </div>
         </div>
@@ -69,26 +69,27 @@
     <div class="col-12">
         <div class="card m-b-30">
             <div class="card-body">
-                <h4 class="mt-0 header-title">Sales Report</h4>
-                
-                <div class="col-md-6 mb-3">
-                    <form action="/admin/salesreport-data-date" method="post">
-                        <div class="input-daterange input-group" id="date-range">
-                            <input type="date" class="form-control" name="start" placeholder="Start Date" />
-                            <input type="text" class="form-control text-center" value="TO" readonly style="width:20px;"
-                                placeholder="Start Date" />
-                            <input type="date" class="form-control" name="end" placeholder="End Date" />
-                            <button type="submit" class="btn ml-3 btn-success">Search</button>
-                        </div>
-                    </form>
-                </div>
-                <div>
-                    <h6> Total Sale Amount: <h4>₹ {{datasort.salereportamount.[0].saletotal}}</h4>
-                    </h6>
-                </div>
 
-                <h4>SALED PRODUCTS</h4>
-        
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3">
+                        <h4 class="mt-0 header-title">Sales Report</h4>
+                        <form action="/admin/salesreport-data-date" method="post">
+                            <div class="input-daterange input-group" id="date-range">
+                                <input type="date" class="form-control" name="start" placeholder="Start Date" />
+                                <input type="text" class="form-control text-center" value="TO" readonly
+                                    style="width:20px;" placeholder="Start Date" />
+                                <input type="date" class="form-control" name="end" placeholder="End Date" />
+                                <button type="submit" class="btn ml-3 btn-success">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <h6> Total Sale Amount <br> <h4>₹ {{datasort.salereportamount.[0].saletotal}}</h4> </h6>
+                    </div>
+                    <div class="col-md-3">
+                        <h6><h4 class="mt-0 header-title">SALED PRODUCTS</h4>  <small>From :</small> <span>{{datasort.body.start}}</span>  <br>  <small>To :</small> <span>{{datasort.body.end}}</span></h6>
+                    </div>
+                </div>
 
                 <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -104,10 +105,6 @@
                             {{!-- <th>Salary</th> --}}
                         </tr>
                     </thead>
-                    <h6>From :{{datasort.body.start}}</h6>
-                    <h6>To :{{datasort.body.end}}</h6>
-
-
                     <tbody>
                         {{#if datasort.data}}
 
