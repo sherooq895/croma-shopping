@@ -1004,8 +1004,8 @@ module.exports = {
                     "payment_method": "paypal"
                 },
                 "redirect_urls": {
-                    "return_url": "http://localhost:3000/order-success",
-                    "cancel_url": "http://localhost:3000/cancel"
+                    "return_url": "http://croma.live/order-success",
+                    "cancel_url": "http://croma.live/cancel"
                 },
                 "transactions": [{
                     "item_list": {
