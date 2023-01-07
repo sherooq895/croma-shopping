@@ -20,9 +20,23 @@ Hey, check out the Live-App, just visit https://croma.live/
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/12Ntzn2xYlVkqWyLZVk1EE-PHffFhMjnM/view?usp=sharing)
-![App Screenshot](https://drive.google.com/file/d/1dvV2r9o9hGSHHY2U6r9sAJnVYCF2gtPV/view?usp=sharing)
-![App Screenshot](https://drive.google.com/file/d/13Wu8WRtxOAi5B2_FiyqGYq9tXrQDPB89/view?usp=sharing)
-![App Screenshot](https://drive.google.com/file/d/1nrJTQGAp99fIGh1Zj80kHxZpuzVdtY8s/view?usp=sharing)
-![App Screenshot](https://drive.google.com/file/d/1R5NCXHQfS814uqLKQH8BjiZ309zLwPR5/view?usp=sharing)
+![image](https://user-images.githubusercontent.com/106912826/211145259-9a9b7cf7-7d4d-4b93-a637-ab234abc4b9f.png)
+![image](https://user-images.githubusercontent.com/106912826/211145282-a1b73394-07cb-498d-b145-b3bfb1cce88e.png)
+![image](https://user-images.githubusercontent.com/106912826/211145304-27970741-3146-463e-aa4e-53093af6c37d.png)
+![image](https://user-images.githubusercontent.com/106912826/211145310-c742a2ba-066a-4262-8dd4-d7ee985d7ef6.png)
+![image](https://user-images.githubusercontent.com/106912826/211145325-28a50af0-31da-41eb-b478-ffe80d3cbd13.png)
+
+## Login Details
+
+admin
+
+-username : admin@gmail.com
+-password :aaa
+
+user
+
+-username : abi@gmail.com
+-password :123
+
+
 
